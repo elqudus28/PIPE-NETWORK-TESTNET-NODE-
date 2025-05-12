@@ -25,3 +25,25 @@ sudo apt update
 sudo apt install -y libssl-dev ca-certificates
 
 ```
+
+## 3. Optimize Network with sysctl
+## -  Create the Configuration File
+
+```console
+sudo nano /etc/sysctl.d/99-popcache.conf
+```
+## - Paste the Following command 
+ These values improve connection handling, port availability, and TCP performance:
+```console
+net.ipv4.ip_local_port_range = 1024 65535
+net.core.somaxconn = 65535
+net.ipv4.tcp_low_latency = 1
+net.ipv4.tcp_fastopen = 3
+net.ipv4.tcp_slow_start_after_idle = 0
+net.ipv4.tcp_window_scaling = 1
+net.ipv4.tcp_wmem = 4096 65536 16777216
+net.ipv4.tcp_rmem = 4096 87380 16777216
+net.core.wmem_max = 16777216
+net.core.rmem_max = 16777216
+```
+save and exit by CTRL X +Y then ENTER

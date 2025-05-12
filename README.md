@@ -47,3 +47,27 @@ net.core.wmem_max = 16777216
 net.core.rmem_max = 16777216
 ```
 save and exit by CTRL X +Y then ENTER
+
+## - Apply the settings
+
+```console
+sudo sysctl -p /etc/sysctl.d/99-popcache.conf
+```
+## - Increase file limits for performance
+```console
+sudo nano /etc/security/limits.d/popcache.conf
+```
+add the 2 lines, saveand exit with CTRL X+Y then ENTER
+```console
+*    hard nofile 65535
+*    soft nofile 65535
+```
+### - Reminder: To Apply Immediately
+These limits require a new login session to apply (or a reboot), unless you run it in your current terminal session:
+```console
+ulimit -n 65535
+```
+
+
+
+

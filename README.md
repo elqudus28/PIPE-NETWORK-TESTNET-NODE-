@@ -77,6 +77,10 @@ cd /opt/popcache
 You need the invite code sent to you in your email
 https://download.pipe.network
 download the binary and upload it, use MOBAXTERM to upload the binary to the directory (popcache)
+## Make the binary executable
+```console
+chmod +x pop
+```
 
 ## 4. Configuration
 configure your file
